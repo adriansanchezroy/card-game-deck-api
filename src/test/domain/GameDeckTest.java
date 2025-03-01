@@ -61,6 +61,59 @@ public class GameDeckTest {
     }
 
     @Test
+    void addMultipleDecks_ShouldAddCorrectNumberOfUniqueCards() {
+        // Given
+        GameDeck multiDeckGameDeck = new GameDeck(null);
+        Deck deck2 = new Deck("Test Deck 2");
+
+        // When
+        multiDeckGameDeck.addDeck(deck);
+        multiDeckGameDeck.addDeck(deck2);
+
+        // Then
+        assertEquals(104, multiDeckGameDeck.getCards().size(),
+                "GameDeck should contain 104 cards after adding two 52-card decks");
+
+        // Verify unique decks
+        List<Card> deck1Cards = deck.getCards();
+        List<Card> deck2Cards = deck2.getCards();
+
+        assertEquals(104, multiDeckGameDeck.getCards().size());
+        // Ensure cards from different decks are not identical
+        for (Card card1 : deck1Cards) {
+            for (Card card2 : deck2Cards) {
+                assertNotEquals(card1, card2,
+                        "Cards from different decks should not be the same object");
+            }
+        }
+    }
+
+    @Test
+    void addMultipleDecks_ShouldHaveCorrectSuitDistribution() {
+        // Given
+        GameDeck multiDeckGameDeck = new GameDeck(null);
+        Deck deck2 = new Deck("Test Deck 2");
+
+        // When
+        multiDeckGameDeck.addDeck(deck);
+        multiDeckGameDeck.addDeck(deck2);
+
+        // Then
+        Map<Suit, Integer> undealtCardsBySuit = multiDeckGameDeck.getUndealtCardsBySuit();
+
+        assertEquals(4, undealtCardsBySuit.size(),
+                "Should still have 4 suits");
+        assertEquals(26, undealtCardsBySuit.get(Suit.HEARTS),
+                "Should have 26 undealt Heart cards");
+        assertEquals(26, undealtCardsBySuit.get(Suit.SPADES),
+                "Should have 26 undealt Spade cards");
+        assertEquals(26, undealtCardsBySuit.get(Suit.CLUBS),
+                "Should have 26 undealt Club cards");
+        assertEquals(26, undealtCardsBySuit.get(Suit.DIAMONDS),
+                "Should have 26 undealt Diamond cards");
+    }
+
+    @Test
     void dealCard_WithNoCardDealt_ShouldReturnFirstCard() {
         // When
         Card dealtCard = gameDeck.dealCard();
@@ -187,7 +240,7 @@ public class GameDeckTest {
     }
 
     @Test
-    void getUndealtCardsByValue_ShouldReturnCorrectValueCounts() {
+    void getUndealtCardsByValue_ShouldReturnCorrectSuitAndValueCounts() {
         // Given
         // Deal some specific cards
         dealSpecificCard(findCard(Suit.HEARTS, Value.ACE));
@@ -195,7 +248,7 @@ public class GameDeckTest {
         dealSpecificCard(findCard(Suit.DIAMONDS, Value.QUEEN));
 
         // When
-        Map<String, Integer> result = gameDeck.getUndealtCardsByValue();
+        Map<String, Integer> result = gameDeck.getUndealtCardsBySuitAndValue();
 
         // Then
         assertEquals(49, result.size()); // 52 - 3 dealt cards

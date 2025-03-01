@@ -95,7 +95,7 @@ public class Game extends BaseEntity {
     }
 
     public Map<String, Integer> getUndealtCardsByValue() {
-        return gameDeck.getUndealtCardsByValue();
+        return gameDeck.getUndealtCardsBySuitAndValue();
     }
 
     public List<Player> getPlayersWithTotalValue() {

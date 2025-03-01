@@ -5,39 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b350339-823f-44df-9bd8-9fd42af931d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IDeckService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IGameService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IPlayerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/base/IBaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/DeckService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/GameService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/PlayerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/base/BaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/DeckServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/GameServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/PlayerServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/domain/DeckTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/domain/GameDeckTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/domain/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-game-deck-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/card-game-deck-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/GameDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/GameDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/CardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/ICardRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/DeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/IDeckRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/GameDeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/IGameDeckRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/IGameRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/IPlayerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/base/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/repository/base/IBaseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cardgamedeck/card_game_deck_api/CardGameDeckApiApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/domain/GameDeckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/domain/GameDeckTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +78,8 @@
     "JUnit.DeckServiceTest.executor": "Run",
     "JUnit.DeckServiceTest.reinitializeDeck_ShouldReinitializeDeckWhenFound.executor": "Run",
     "JUnit.DeckTest.initialize_ShouldCreateDeckWith52Cards.executor": "Debug",
+    "JUnit.GameDeckTest.addMultipleDecks_ShouldAddCorrectNumberOfCards.executor": "Run",
+    "JUnit.GameDeckTest.addMultipleDecks_ShouldHaveCorrectSuitDistribution.executor": "Run",
     "JUnit.GameDeckTest.executor": "Run",
     "JUnit.GameDeckTest.getUndealtCardsByValue_ShouldReturnCorrectValueCounts.executor": "Run",
     "JUnit.GameServiceTest.executor": "Run",
@@ -130,7 +104,7 @@
     "Remote JVM Debug.Maven Test Debug.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/service-layer",
+    "git-widget-placeholder": "feature/controller-implementation",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/home/adriansanchezroy/Documents/card-deck-game-api/src/test",
     "last_opened_file_path": "/home/adriansanchezroy/Documents/card-deck-game-api",
@@ -145,7 +119,7 @@
       <recent name="com.cardgamedeck.card_game_deck_api.application.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in card-game-deck-api">
+  <component name="RunManager" selected="JUnit.GameDeckTest">
     <configuration name="All in card-game-deck-api" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
       <option name="PACKAGE_NAME" value="" />
@@ -169,7 +143,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameDeckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
       <extension name="coverage">
         <pattern>
@@ -178,13 +152,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="domain" />
-      <option name="MAIN_CLASS_NAME" value="domain.GameTest" />
+      <option name="MAIN_CLASS_NAME" value="domain.GameDeckTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.dealCards_WhenPlayerNotInGame_ShouldThrowIllegalArgumentException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameDeckTest.addMultipleDecks_ShouldAddCorrectNumberOfCards" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
       <extension name="coverage">
         <pattern>
@@ -193,14 +167,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="domain" />
-      <option name="MAIN_CLASS_NAME" value="domain.GameTest" />
-      <option name="METHOD_NAME" value="dealCards_WhenPlayerNotInGame_ShouldThrowIllegalArgumentException" />
+      <option name="MAIN_CLASS_NAME" value="domain.GameDeckTest" />
+      <option name="METHOD_NAME" value="addMultipleDecks_ShouldAddCorrectNumberOfCards" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.getUndealtCardsBySuit_ShouldReturnCorrectCountAfterDealing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameDeckTest.addMultipleDecks_ShouldHaveCorrectSuitDistribution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
       <extension name="coverage">
         <pattern>
@@ -209,8 +183,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="domain" />
-      <option name="MAIN_CLASS_NAME" value="domain.GameTest" />
-      <option name="METHOD_NAME" value="getUndealtCardsBySuit_ShouldReturnCorrectCountAfterDealing" />
+      <option name="MAIN_CLASS_NAME" value="domain.GameDeckTest" />
+      <option name="METHOD_NAME" value="addMultipleDecks_ShouldHaveCorrectSuitDistribution" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -242,20 +216,20 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JUnit.GameDeckTest" />
+      <item itemvalue="JUnit.GameDeckTest.addMultipleDecks_ShouldAddCorrectNumberOfCards" />
+      <item itemvalue="JUnit.GameDeckTest.addMultipleDecks_ShouldHaveCorrectSuitDistribution" />
       <item itemvalue="JUnit.All in card-game-deck-api" />
       <item itemvalue="JUnit.DeckServiceTest" />
-      <item itemvalue="JUnit.GameTest" />
-      <item itemvalue="JUnit.GameTest.dealCards_WhenPlayerNotInGame_ShouldThrowIllegalArgumentException" />
-      <item itemvalue="JUnit.GameTest.getUndealtCardsBySuit_ShouldReturnCorrectCountAfterDealing" />
       <item itemvalue="Remote JVM Debug.Maven Test Debug" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameDeckTest" />
+        <item itemvalue="JUnit.GameDeckTest.addMultipleDecks_ShouldHaveCorrectSuitDistribution" />
+        <item itemvalue="JUnit.GameDeckTest.addMultipleDecks_ShouldAddCorrectNumberOfCards" />
         <item itemvalue="JUnit.All in card-game-deck-api" />
         <item itemvalue="JUnit.DeckServiceTest" />
-        <item itemvalue="JUnit.GameTest" />
-        <item itemvalue="JUnit.GameTest.dealCards_WhenPlayerNotInGame_ShouldThrowIllegalArgumentException" />
-        <item itemvalue="JUnit.GameTest.getUndealtCardsBySuit_ShouldReturnCorrectCountAfterDealing" />
       </list>
     </recent_temporary>
   </component>

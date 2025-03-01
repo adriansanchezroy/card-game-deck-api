@@ -100,15 +100,15 @@ public class GameDeck extends BaseEntity {
         return countBySuit;
     }
 
-    public Map<String, Integer> getUndealtCardsByValue() {
-        Map<String, Integer> countByValue = new HashMap<>();
+    public Map<String, Integer> getUndealtCardsBySuitAndValue() {
+        Map<String, Integer> countBySuitAndValue = new HashMap<>();
 
         getUndealtCards().forEach(card -> {
             String key = card.getSuit() + "-" + card.getValue();
-            countByValue.put(key, countByValue.getOrDefault(key, 0) + 1);
+            countBySuitAndValue.put(key, countBySuitAndValue.getOrDefault(key, 0) + 1);
         });
 
-        return countByValue;
+        return countBySuitAndValue;
     }
 
     public List<Card> getUndealtCards() {
