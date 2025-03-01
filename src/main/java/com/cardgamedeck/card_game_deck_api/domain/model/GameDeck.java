@@ -10,12 +10,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -68,7 +63,22 @@ public class GameDeck extends BaseEntity {
     }
 
     public void shuffle() {
-        // TODO: Implement custom shuffle method
+        // Create a copy of all cards
+        List<Card> allCards = new ArrayList<>(cards);
+
+        // Fisher-Yates shuffle algorithm
+        Random random = new Random();
+        for (int i = allCards.size() - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            // Swap elements at indices i and j
+            Card temp = allCards.get(i);
+            allCards.set(i, allCards.get(j));
+            allCards.set(j, temp);
+        }
+
+        // Replace cards with shuffled order
+        cards.clear();
+        cards.addAll(allCards);
 
     }
 
@@ -101,7 +111,7 @@ public class GameDeck extends BaseEntity {
         return countByValue;
     }
 
-    private List<Card> getUndealtCards() {
+    public List<Card> getUndealtCards() {
         return cards.stream()
                 .filter(card -> !dealtCards.contains(card))
                 .collect(Collectors.toList());
