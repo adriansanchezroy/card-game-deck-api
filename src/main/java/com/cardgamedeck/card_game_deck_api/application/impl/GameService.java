@@ -43,6 +43,15 @@ public class GameService extends BaseService<Game, IGameRepository> implements I
 
     @Override
     @Transactional
+    public void deleteGame(UUID gameId) {
+        Game game = repository.findById(gameId)
+                .orElseThrow(() -> new EntityNotFoundException("Game not found with ID: " + gameId));
+
+        repository.delete(game);
+    }
+
+    @Override
+    @Transactional
     public Game addDeckToGame(UUID gameId, UUID deckId) {
         Game game = repository.findById(gameId)
                 .orElseThrow(() -> new EntityNotFoundException("Game not found with ID: " + gameId));

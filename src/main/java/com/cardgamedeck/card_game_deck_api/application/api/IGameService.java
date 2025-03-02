@@ -25,6 +25,14 @@ public interface IGameService extends IBaseService<Game> {
     Game createGame(String name);
 
     /**
+     * Deletes a game by its ID.
+     *
+     * @param gameId The ID of the game to delete
+     * @throws jakarta.persistence.EntityNotFoundException if game not found
+     */
+    void deleteGame(UUID gameId);
+
+    /**
      * Adds a deck to the game deck (shoe).
      *
      * @param gameId The ID of the game

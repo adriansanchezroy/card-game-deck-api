@@ -9,6 +9,7 @@ import com.cardgamedeck.card_game_deck_api.domain.model.enums.Value;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -193,6 +194,53 @@ public class GameDeckTest {
     }
 
     @Test
+    void shuffle_WithTwoDecks_ShouldDealAllCardsInRandomOrder() {
+        // Given
+        GameDeck twoDeckGame = new GameDeck(null);
+        Deck firstDeck = new Deck("First Deck");
+        Deck secondDeck = new Deck("Second Deck");
+
+        // Set unique IDs for cards in both decks
+        firstDeck.getCards().forEach(card -> setPrivateId(card, UUID.randomUUID()));
+        secondDeck.getCards().forEach(card -> setPrivateId(card, UUID.randomUUID()));
+
+        // Add two decks to the game deck (104 cards total)
+        twoDeckGame.addDeck(firstDeck);
+        twoDeckGame.addDeck(secondDeck);
+
+        // Get the original cards for verification
+        List<Card> originalCards = new ArrayList<>(twoDeckGame.getCards());
+        assertEquals(104, originalCards.size());
+
+        // When
+        twoDeckGame.shuffle();
+
+        // Deal all cards
+        List<Card> dealtCards = new ArrayList<>();
+        Card card;
+        int count = 0;
+
+        while ((card = twoDeckGame.dealCard()) != null) {
+            dealtCards.add(card);
+            count++;
+        }
+
+        // Then
+        assertEquals(104, count);
+        assertEquals(104, dealtCards.size());
+
+        // Verify the 105th attempt returns null
+        assertNull(twoDeckGame.dealCard());
+
+        // Verify all original cards were dealt
+        assertTrue(dealtCards.containsAll(originalCards));
+        assertTrue(originalCards.containsAll(dealtCards));
+
+        // Verify the order is changed
+        assertNotEquals(originalCards, dealtCards);
+    }
+
+    @Test
     void getUndealtCount_ShouldReturnCorrectCount() {
         // Given
         assertEquals(52, gameDeck.getUndealtCount());
@@ -269,7 +317,7 @@ public class GameDeckTest {
                 .orElseThrow(() -> new IllegalStateException("Card not found: " + value + " of " + suit));
     }
 
-    // Helper method to deal a specific card
+    // Helper methods
     private void dealSpecificCard(Card targetCard) {
         // Get all undealt cards
         List<Card> undealtCards = gameDeck.getUndealtCards();
@@ -295,5 +343,16 @@ public class GameDeckTest {
 
         // Shuffle the deck
         gameDeck.shuffle();
+    }
+
+    // TODO: migrate to test utils
+    private void setPrivateId(Object entity, UUID id) {
+        try {
+            Field idField = entity.getClass().getSuperclass().getDeclaredField("id");
+            idField.setAccessible(true);
+            idField.set(entity, id);
+        } catch (Exception e) {
+            fail("Failed to set ID: " + e.getMessage());
+        }
     }
 }

@@ -5,10 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b350339-823f-44df-9bd8-9fd42af931d4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/DeckController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/PlayerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/CardDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/DeckDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/GameDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/PlayerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/request/DealCardsRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/response/CardCountBySuitResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/response/CardCountByValueResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/response/PlayerCardsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/response/PlayerScoreResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/mapper/CardMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/mapper/DeckMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/mapper/GameMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/mapper/PlayerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/presentation/mapper/CardMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/presentation/mapper/DeckMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/presentation/mapper/GameMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/presentation/mapper/PlayerMapperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/GameDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/GameDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/GameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/GameServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/domain/GameDeckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/domain/GameDeckTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +75,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -70,6 +90,8 @@
     "JUnit.All in card-game-deck-api.executor": "Run",
     "JUnit.CardGameDeckApiApplicationTests.contextLoads (1).executor": "Run",
     "JUnit.CardGameDeckApiApplicationTests.contextLoads.executor": "Run",
+    "JUnit.CardMapperTest.executor": "Run",
+    "JUnit.DeckMapperTest.executor": "Run",
     "JUnit.DeckServiceImplTest.createDeck_ShouldCreateAndSaveDeck.executor": "Run",
     "JUnit.DeckServiceTest.createDeck_ShouldCreateAndSaveDeck (1).executor": "Run",
     "JUnit.DeckServiceTest.createDeck_ShouldCreateAndSaveDeck (2).executor": "Run",
@@ -82,6 +104,8 @@
     "JUnit.GameDeckTest.addMultipleDecks_ShouldHaveCorrectSuitDistribution.executor": "Run",
     "JUnit.GameDeckTest.executor": "Run",
     "JUnit.GameDeckTest.getUndealtCardsByValue_ShouldReturnCorrectValueCounts.executor": "Run",
+    "JUnit.GameDeckTest.shuffle_WithSomeDealtCards_ShouldPreserveDealtStatus.executor": "Run",
+    "JUnit.GameDeckTest.shuffle_WithTwoDecks_ShouldDealAllCardsInRandomOrder.executor": "Run",
     "JUnit.GameServiceTest.executor": "Run",
     "JUnit.GameServiceTest.getPlayersWithTotalValues_ShouldReturnPlayersInDescendingOrderByTotalValue.executor": "Run",
     "JUnit.GameServiceTest.getPlayersWithTotalValues_ShouldReturnSortedListOfPlayers.executor": "Debug",
@@ -94,9 +118,12 @@
     "JUnit.GameTest.removePlayer_ShouldRemovePlayerAndReturnCards.executor": "Run",
     "JUnit.GameTest.testDealCards.executor": "Debug",
     "JUnit.GameTest.testGetPlayersWithTotalValue.executor": "Run",
+    "JUnit.PlayerMapperTest.executor": "Run",
     "JUnit.PlayerServiceTest.executor": "Run",
+    "JUnit.PlayerServiceTest.getPlayerCards_WithExistingPlayer_ShouldReturnPlayerCards.executor": "Run",
     "JUnit.SimpleTest.executor": "Debug",
     "JUnit.SimpleTest.simpleTest.executor": "Debug",
+    "JUnit.test in card-game-deck-api.executor": "Run",
     "Maven.card-game-deck-api [clean].executor": "Run",
     "Maven.card-game-deck-api [compile].executor": "Run",
     "Maven.card-game-deck-api [install].executor": "Run",
@@ -119,46 +146,38 @@
       <recent name="com.cardgamedeck.card_game_deck_api.application.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameDeckTest">
-    <configuration name="All in card-game-deck-api" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="card-game-deck-api" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DeckServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GameMapperTest">
+    <configuration name="CardMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.cardgamedeck.card_game_deck_api.application.*" />
+          <option name="PATTERN" value="presentation.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.cardgamedeck.card_game_deck_api.application" />
-      <option name="MAIN_CLASS_NAME" value="com.cardgamedeck.card_game_deck_api.application.DeckServiceTest" />
+      <option name="PACKAGE_NAME" value="presentation.mapper" />
+      <option name="MAIN_CLASS_NAME" value="presentation.mapper.CardMapperTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameDeckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DeckMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="domain.*" />
+          <option name="PATTERN" value="presentation.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="domain" />
-      <option name="MAIN_CLASS_NAME" value="domain.GameDeckTest" />
+      <option name="PACKAGE_NAME" value="presentation.mapper" />
+      <option name="MAIN_CLASS_NAME" value="presentation.mapper.DeckMapperTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameDeckTest.addMultipleDecks_ShouldAddCorrectNumberOfCards" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameDeckTest.shuffle_WithTwoDecks_ShouldDealAllCardsInRandomOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
       <extension name="coverage">
         <pattern>
@@ -168,24 +187,38 @@
       </extension>
       <option name="PACKAGE_NAME" value="domain" />
       <option name="MAIN_CLASS_NAME" value="domain.GameDeckTest" />
-      <option name="METHOD_NAME" value="addMultipleDecks_ShouldAddCorrectNumberOfCards" />
+      <option name="METHOD_NAME" value="shuffle_WithTwoDecks_ShouldDealAllCardsInRandomOrder" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameDeckTest.addMultipleDecks_ShouldHaveCorrectSuitDistribution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="domain.*" />
+          <option name="PATTERN" value="presentation.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="domain" />
-      <option name="MAIN_CLASS_NAME" value="domain.GameDeckTest" />
-      <option name="METHOD_NAME" value="addMultipleDecks_ShouldHaveCorrectSuitDistribution" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="presentation.mapper" />
+      <option name="MAIN_CLASS_NAME" value="presentation.mapper.GameMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="card-game-deck-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="presentation.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="presentation.mapper" />
+      <option name="MAIN_CLASS_NAME" value="presentation.mapper.PlayerMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -216,20 +249,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.GameDeckTest" />
-      <item itemvalue="JUnit.GameDeckTest.addMultipleDecks_ShouldAddCorrectNumberOfCards" />
-      <item itemvalue="JUnit.GameDeckTest.addMultipleDecks_ShouldHaveCorrectSuitDistribution" />
-      <item itemvalue="JUnit.All in card-game-deck-api" />
-      <item itemvalue="JUnit.DeckServiceTest" />
+      <item itemvalue="JUnit.CardMapperTest" />
+      <item itemvalue="JUnit.DeckMapperTest" />
+      <item itemvalue="JUnit.GameDeckTest.shuffle_WithTwoDecks_ShouldDealAllCardsInRandomOrder" />
+      <item itemvalue="JUnit.GameMapperTest" />
+      <item itemvalue="JUnit.PlayerMapperTest" />
       <item itemvalue="Remote JVM Debug.Maven Test Debug" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GameDeckTest" />
-        <item itemvalue="JUnit.GameDeckTest.addMultipleDecks_ShouldHaveCorrectSuitDistribution" />
-        <item itemvalue="JUnit.GameDeckTest.addMultipleDecks_ShouldAddCorrectNumberOfCards" />
-        <item itemvalue="JUnit.All in card-game-deck-api" />
-        <item itemvalue="JUnit.DeckServiceTest" />
+        <item itemvalue="JUnit.GameMapperTest" />
+        <item itemvalue="JUnit.PlayerMapperTest" />
+        <item itemvalue="JUnit.DeckMapperTest" />
+        <item itemvalue="JUnit.CardMapperTest" />
+        <item itemvalue="JUnit.GameDeckTest.shuffle_WithTwoDecks_ShouldDealAllCardsInRandomOrder" />
       </list>
     </recent_temporary>
   </component>
