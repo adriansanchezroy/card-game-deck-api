@@ -6,11 +6,12 @@ import com.cardgamedeck.card_game_deck_api.domain.model.Game;
 import com.cardgamedeck.card_game_deck_api.domain.model.Player;
 import com.cardgamedeck.card_game_deck_api.domain.model.enums.Suit;
 import com.cardgamedeck.card_game_deck_api.domain.model.enums.Value;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import utils.TestUtils;
 
-import java.lang.reflect.Field;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,9 +40,9 @@ class GameTest {
     @Test
     void addDeck_ShouldPopulateGameDeckWithAllCardsAcrossFourSuits() {
         // Set unique IDs for entities
-        setPrivateId(game, UUID.randomUUID());
-        setPrivateId(standardDeck, UUID.randomUUID());
-        standardDeck.getCards().forEach(card -> setPrivateId(card, UUID.randomUUID()));
+        TestUtils.setPrivateId(game, UUID.randomUUID());
+        TestUtils.setPrivateId(standardDeck, UUID.randomUUID());
+        standardDeck.getCards().forEach(card -> TestUtils.setPrivateId(card, UUID.randomUUID()));
 
         game.addDeck(standardDeck);
 
@@ -55,8 +56,8 @@ class GameTest {
     @Test
     void addPlayer_ShouldIncreasePlayerCountAndContainAddedPlayer() {
         // Set unique IDs for entities
-        setPrivateId(game, UUID.randomUUID());
-        setPrivateId(player, UUID.randomUUID());
+        TestUtils.setPrivateId(game, UUID.randomUUID());
+        TestUtils.setPrivateId(player, UUID.randomUUID());
 
         game.addPlayer(player);
 
@@ -68,11 +69,11 @@ class GameTest {
     @Test
     void removePlayer_ShouldRemovePlayerAndReturnCards() {
         // Set unique IDs for entities
-        setPrivateId(standardDeck, UUID.randomUUID());
-        standardDeck.getCards().forEach(card -> setPrivateId(card, UUID.randomUUID()));
+        TestUtils.setPrivateId(standardDeck, UUID.randomUUID());
+        standardDeck.getCards().forEach(card -> TestUtils.setPrivateId(card, UUID.randomUUID()));
 
-        setPrivateId(game, UUID.randomUUID());
-        setPrivateId(player, UUID.randomUUID());
+        TestUtils.setPrivateId(game, UUID.randomUUID());
+        TestUtils.setPrivateId(player, UUID.randomUUID());
 
         // Add player and deal some cards
         game.addDeck(standardDeck);
@@ -97,17 +98,17 @@ class GameTest {
 
         // Ensure unique IDs for cards in the deck
         standardDeck.getCards().forEach(card -> {
-            setPrivateId(card, UUID.randomUUID());
+            TestUtils.setPrivateId(card, UUID.randomUUID());
         });
 
         // Create a game and add the deck
         Game game = new Game("Test Game");
-        setPrivateId(game, UUID.randomUUID());
+        TestUtils.setPrivateId(game, UUID.randomUUID());
         game.addDeck(standardDeck);
 
         // Create a player and add to game
         Player player1 = new Player("Player 1");
-        setPrivateId(player1, UUID.randomUUID());
+        TestUtils.setPrivateId(player1, UUID.randomUUID());
         game.addPlayer(player1);
 
         // Deal cards
@@ -123,11 +124,11 @@ class GameTest {
     @Test
     void dealCards_WhenPlayerNotInGame_ShouldThrowIllegalArgumentException() {
         // Set unique IDs for entities
-        setPrivateId(standardDeck, UUID.randomUUID());
-        standardDeck.getCards().forEach(card -> setPrivateId(card, UUID.randomUUID()));
+        TestUtils.setPrivateId(standardDeck, UUID.randomUUID());
+        standardDeck.getCards().forEach(card -> TestUtils.setPrivateId(card, UUID.randomUUID()));
 
-        setPrivateId(game, UUID.randomUUID());
-        setPrivateId(player, UUID.randomUUID());
+        TestUtils.setPrivateId(game, UUID.randomUUID());
+        TestUtils.setPrivateId(player, UUID.randomUUID());
 
         game.addDeck(standardDeck);
 
@@ -142,11 +143,11 @@ class GameTest {
     @Test
     void getUndealtCardsBySuit_ShouldReturnCorrectCountAfterDealing() {
         // Set unique IDs for entities
-        setPrivateId(standardDeck, UUID.randomUUID());
-        standardDeck.getCards().forEach(card -> setPrivateId(card, UUID.randomUUID()));
+        TestUtils.setPrivateId(standardDeck, UUID.randomUUID());
+        standardDeck.getCards().forEach(card -> TestUtils.setPrivateId(card, UUID.randomUUID()));
 
-        setPrivateId(game, UUID.randomUUID());
-        setPrivateId(player, UUID.randomUUID());
+        TestUtils.setPrivateId(game, UUID.randomUUID());
+        TestUtils.setPrivateId(player, UUID.randomUUID());
 
         // Add deck to game
         game.addDeck(standardDeck);
@@ -206,15 +207,5 @@ class GameTest {
         assertEquals(playerB, sortedPlayers.get(0));
         assertEquals(playerA, sortedPlayers.get(1));
     }
-
-    // Helper Methods
-    private void setPrivateId(Object entity, UUID id) {
-        try {
-            Field idField = entity.getClass().getSuperclass().getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, id);
-        } catch (Exception e) {
-            fail("Failed to set ID: " + e.getMessage());
-        }
-    }
+    
 }

@@ -151,11 +151,11 @@ public class GameService extends BaseService<Game, IGameRepository> implements I
 
     @Override
     @Transactional(readOnly = true)
-    public Map<String, Integer> getUndealtCardsByValue(UUID gameId) {
+    public Map<String, Integer> getUndealtCardsBySuitAndValue(UUID gameId) {
         Game game = repository.findById(gameId)
                 .orElseThrow(() -> new EntityNotFoundException("Game not found with ID: " + gameId));
 
-        return game.getUndealtCardsByValue();
+        return game.getUndealtCardsBySuitAndValue();
     }
 
     @Override

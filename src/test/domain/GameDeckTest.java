@@ -8,8 +8,8 @@ import com.cardgamedeck.card_game_deck_api.domain.model.enums.Value;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.TestUtils;
 
-import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -35,18 +35,6 @@ public class GameDeckTest {
 
         // Set unique IDs for each card to ensure proper equality checks
         setUniqueIdsForCards(originalOrder);
-    }
-
-    private void setUniqueIdsForCards(List<Card> cards) {
-        for (Card card : cards) {
-            try {
-                java.lang.reflect.Field idField = card.getClass().getSuperclass().getDeclaredField("id");
-                idField.setAccessible(true);
-                idField.set(card, UUID.randomUUID());
-            } catch (Exception e) {
-                fail("Failed to set unique ID for card: " + e.getMessage());
-            }
-        }
     }
 
     @Test
@@ -201,8 +189,8 @@ public class GameDeckTest {
         Deck secondDeck = new Deck("Second Deck");
 
         // Set unique IDs for cards in both decks
-        firstDeck.getCards().forEach(card -> setPrivateId(card, UUID.randomUUID()));
-        secondDeck.getCards().forEach(card -> setPrivateId(card, UUID.randomUUID()));
+        firstDeck.getCards().forEach(card -> TestUtils.setPrivateId(card, UUID.randomUUID()));
+        secondDeck.getCards().forEach(card -> TestUtils.setPrivateId(card, UUID.randomUUID()));
 
         // Add two decks to the game deck (104 cards total)
         twoDeckGame.addDeck(firstDeck);
@@ -288,7 +276,7 @@ public class GameDeckTest {
     }
 
     @Test
-    void getUndealtCardsByValue_ShouldReturnCorrectSuitAndValueCounts() {
+    void getUndealtCardsByValue_ShouldReturnCorrectSuitAndSuitAndValueCounts() {
         // Given
         // Deal some specific cards
         dealSpecificCard(findCard(Suit.HEARTS, Value.ACE));
@@ -345,14 +333,11 @@ public class GameDeckTest {
         gameDeck.shuffle();
     }
 
-    // TODO: migrate to test utils
-    private void setPrivateId(Object entity, UUID id) {
-        try {
-            Field idField = entity.getClass().getSuperclass().getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, id);
-        } catch (Exception e) {
-            fail("Failed to set ID: " + e.getMessage());
+    // Helper Methods
+    private void setUniqueIdsForCards(List<Card> cards) {
+        for (Card card : cards) {
+            TestUtils.setPrivateId(card, UUID.randomUUID());
         }
     }
+
 }

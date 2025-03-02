@@ -111,7 +111,7 @@ public interface IGameService extends IBaseService<Game> {
      * @return A map of card identifiers to card counts
      * @throws jakarta.persistence.EntityNotFoundException if game not found
      */
-    Map<String, Integer> getUndealtCardsByValue(UUID gameId);
+    Map<String, Integer> getUndealtCardsBySuitAndValue(UUID gameId);
 
     /**
      * Shuffles the game deck (shoe).

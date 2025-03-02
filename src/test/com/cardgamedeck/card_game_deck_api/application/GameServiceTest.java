@@ -338,7 +338,7 @@ public class GameServiceTest {
     }
 
     @Test
-    void getUndealtCardsByValue_ShouldReturnCorrectCountsPerCardType() {
+    void getUndealtCardsBySuitAndValue_ShouldReturnCorrectCountsPerCardType() {
         // Given
         Game mockGame = mock(Game.class);
 
@@ -352,16 +352,16 @@ public class GameServiceTest {
 
         // Configure mock behavior
         when(gameRepository.findById(gameId)).thenReturn(Optional.of(mockGame));
-        when(mockGame.getUndealtCardsByValue()).thenReturn(expectedCounts);
+        when(mockGame.getUndealtCardsBySuitAndValue()).thenReturn(expectedCounts);
 
         // When
-        Map<String, Integer> result = gameService.getUndealtCardsByValue(gameId);
+        Map<String, Integer> result = gameService.getUndealtCardsBySuitAndValue(gameId);
 
         // Then
         assertNotNull(result);
         assertEquals(expectedCounts, result);
         verify(gameRepository, times(1)).findById(gameId);
-        verify(mockGame, times(1)).getUndealtCardsByValue();
+        verify(mockGame, times(1)).getUndealtCardsBySuitAndValue();
     }
 
     // TODO: not the most interesting test...

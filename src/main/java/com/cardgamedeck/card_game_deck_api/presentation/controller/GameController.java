@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -37,53 +38,67 @@ public class GameController {
     @PostMapping
     @Operation(summary = "Create a new game", description = "Creates a new card game")
     public ResponseEntity<GameDTO> createGame(@RequestBody GameDTO gameRequest) {
-        Game game = gameService.createGame(gameRequest.getName());
-        return new ResponseEntity<>(gameMapper.toDTO(game), HttpStatus.CREATED);
+        Game gameEntity = gameService.createGame(gameRequest.getName());
+        GameDTO gameDTO = gameMapper.toDTO(gameEntity);
+
+        return new ResponseEntity<>(gameDTO, HttpStatus.CREATED);
     }
+
 
     @DeleteMapping("/{gameId}")
     @Operation(summary = "Delete a game", description = "Deletes a game by its ID")
     public ResponseEntity<Void> deleteGame(@PathVariable UUID gameId) {
         gameService.deleteGame(gameId);
+
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/{gameId}")
     @Operation(summary = "Get a game by ID", description = "Returns a game by its ID")
     public ResponseEntity<GameDTO> getGameById(@PathVariable UUID gameId) {
-        return gameService.findById(gameId)
-                .map(game -> new ResponseEntity<>(gameMapper.toDTO(game), HttpStatus.OK))
+        Optional<Game> gameEntity = gameService.findById(gameId);
+
+        return gameEntity.map(game -> new ResponseEntity<>(gameMapper.toDTO(game), HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    // TODO: probably unecessary controller method
     @GetMapping
     @Operation(summary = "Get all games", description = "Returns all games")
     public ResponseEntity<List<GameDTO>> getAllGames() {
-        List<GameDTO> games = gameService.findAll().stream()
+        List<Game> games = gameService.findAll();
+        List<GameDTO> gameDTOs = games.stream()
                 .map(gameMapper::toDTO)
                 .collect(Collectors.toList());
-        return new ResponseEntity<>(games, HttpStatus.OK);
+
+        return new ResponseEntity<>(gameDTOs, HttpStatus.OK);
     }
 
     @PostMapping("/{gameId}/decks/{deckId}")
     @Operation(summary = "Add a deck to a game", description = "Adds a deck to the game's deck (shoe)")
     public ResponseEntity<GameDTO> addDeckToGame(@PathVariable UUID gameId, @PathVariable UUID deckId) {
-        Game game = gameService.addDeckToGame(gameId, deckId);
-        return new ResponseEntity<>(gameMapper.toDTO(game), HttpStatus.OK);
+        Game gameEntity = gameService.addDeckToGame(gameId, deckId);
+        GameDTO gameDTO = gameMapper.toDTO(gameEntity);
+
+        return new ResponseEntity<>(gameDTO, HttpStatus.OK);
     }
 
     @PostMapping("/{gameId}/players/{playerId}")
     @Operation(summary = "Add a player to a game", description = "Adds a player to a game")
     public ResponseEntity<GameDTO> addPlayerToGame(@PathVariable UUID gameId, @PathVariable UUID playerId) {
-        Game game = gameService.addPlayerToGame(gameId, playerId);
-        return new ResponseEntity<>(gameMapper.toDTO(game), HttpStatus.OK);
+        Game gameEntity = gameService.addPlayerToGame(gameId, playerId);
+        GameDTO gameDTO = gameMapper.toDTO(gameEntity);
+
+        return new ResponseEntity<>(gameDTO, HttpStatus.OK);
     }
 
     @DeleteMapping("/{gameId}/players/{playerId}")
     @Operation(summary = "Remove a player from a game", description = "Removes a player from a game and returns their cards")
     public ResponseEntity<GameDTO> removePlayerFromGame(@PathVariable UUID gameId, @PathVariable UUID playerId) {
-        Game game = gameService.removePlayerFromGame(gameId, playerId);
-        return new ResponseEntity<>(gameMapper.toDTO(game), HttpStatus.OK);
+        Game gameEntity = gameService.removePlayerFromGame(gameId, playerId);
+        GameDTO gameDTO = gameMapper.toDTO(gameEntity);
+
+        return new ResponseEntity<>(gameDTO, HttpStatus.OK);
     }
 
     @PostMapping("/{gameId}/players/{playerId}/deal")
@@ -94,8 +109,10 @@ public class GameController {
             @RequestBody(required = false) DealCardsRequest request) {
 
         int count = (request != null) ? request.getCount() : 1;
-        Game game = gameService.dealCardsToPlayer(gameId, playerId, count);
-        return new ResponseEntity<>(gameMapper.toDTO(game), HttpStatus.OK);
+        Game gameEntity = gameService.dealCardsToPlayer(gameId, playerId, count);
+        GameDTO gameDTO = gameMapper.toDTO(gameEntity);
+
+        return new ResponseEntity<>(gameDTO, HttpStatus.OK);
     }
 
     @GetMapping("/{gameId}/players/scores")
@@ -104,29 +121,34 @@ public class GameController {
         List<PlayerScoreResponse> playerScores = gameService.getPlayersWithTotalValues(gameId).stream()
                 .map(playerMapper::toScoreDTO)
                 .collect(Collectors.toList());
+
         return new ResponseEntity<>(playerScores, HttpStatus.OK);
     }
 
     @GetMapping("/{gameId}/deck/cards-by-suit")
     @Operation(summary = "Get undealt cards by suit", description = "Returns the count of undealt cards grouped by suit")
     public ResponseEntity<CardCountBySuitResponse> getUndealtCardsBySuit(@PathVariable UUID gameId) {
-        CardCountBySuitResponse response = gameMapper.toCardCountBySuitResponse(
-                gameService.getUndealtCardsBySuit(gameId));
+        var cardCount = gameService.getUndealtCardsBySuit(gameId);
+        CardCountBySuitResponse response = gameMapper.toCardCountBySuitResponse(cardCount);
+
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/{gameId}/deck/cards-by-value")
-    @Operation(summary = "Get undealt cards by value", description = "Returns the count of each undealt card by suit and value")
+    @Operation(summary = "Get undealt cards by suit and value", description = "Returns the count of each undealt card by suit and value")
     public ResponseEntity<CardCountByValueResponse> getUndealtCardsByValue(@PathVariable UUID gameId) {
-        CardCountByValueResponse response = gameMapper.toCardCountByValueResponse(
-                gameService.getUndealtCardsByValue(gameId));
+        var cardCount = gameService.getUndealtCardsBySuitAndValue(gameId);
+        CardCountByValueResponse response = gameMapper.toCardCountByValueResponse(cardCount);
+
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/{gameId}/deck/shuffle")
     @Operation(summary = "Shuffle the game deck", description = "Shuffles all cards in the game deck")
     public ResponseEntity<GameDTO> shuffleGameDeck(@PathVariable UUID gameId) {
-        Game game = gameService.shuffleGameDeck(gameId);
-        return new ResponseEntity<>(gameMapper.toDTO(game), HttpStatus.OK);
+        Game gameEntity = gameService.shuffleGameDeck(gameId);
+        GameDTO gameDTO = gameMapper.toDTO(gameEntity);
+
+        return new ResponseEntity<>(gameDTO, HttpStatus.OK);
     }
 }

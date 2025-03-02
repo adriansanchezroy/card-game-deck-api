@@ -5,8 +5,10 @@ import com.cardgamedeck.card_game_deck_api.domain.model.enums.Suit;
 import com.cardgamedeck.card_game_deck_api.domain.model.enums.Value;
 import com.cardgamedeck.card_game_deck_api.presentation.dto.CardDTO;
 import com.cardgamedeck.card_game_deck_api.presentation.mapper.CardMapper;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.TestUtils;
 
 import java.util.UUID;
 
@@ -25,7 +27,7 @@ class CardMapperTest {
         // Create test card
         cardId = UUID.randomUUID();
         testCard = new Card(Suit.HEARTS, Value.ACE);
-        setPrivateId(testCard, cardId);
+        TestUtils.setPrivateId(testCard, cardId);
     }
 
     @Test
@@ -50,14 +52,4 @@ class CardMapperTest {
         assertNull(result);
     }
 
-    // TODO Put in test Utils
-    private void setPrivateId(Object entity, UUID id) {
-        try {
-            java.lang.reflect.Field idField = entity.getClass().getSuperclass().getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, id);
-        } catch (Exception e) {
-            fail("Failed to set up test entity ID: " + e.getMessage());
-        }
-    }
 }

@@ -9,8 +9,10 @@ import com.cardgamedeck.card_game_deck_api.presentation.dto.PlayerDTO;
 import com.cardgamedeck.card_game_deck_api.presentation.dto.response.PlayerCardsResponse;
 import com.cardgamedeck.card_game_deck_api.presentation.dto.response.PlayerScoreResponse;
 import com.cardgamedeck.card_game_deck_api.presentation.mapper.PlayerMapper;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.TestUtils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,13 +34,13 @@ class PlayerMapperTest {
         // Create test player
         playerId = UUID.randomUUID();
         testPlayer = new Player("Test Player");
-        setPrivateId(testPlayer, playerId);
+        TestUtils.setPrivateId(testPlayer, playerId);
 
         // Add some cards to the player
         Card card1 = new Card(Suit.HEARTS, Value.ACE);
         Card card2 = new Card(Suit.SPADES, Value.KING);
-        setPrivateId(card1, UUID.randomUUID());
-        setPrivateId(card2, UUID.randomUUID());
+        TestUtils.setPrivateId(card1, UUID.randomUUID());
+        TestUtils.setPrivateId(card2, UUID.randomUUID());
         testPlayer.addCard(card1);
         testPlayer.addCard(card2);
 
@@ -113,14 +115,4 @@ class PlayerMapperTest {
         assertNull(result);
     }
 
-    // TODO Put in test Utils
-    private void setPrivateId(Object entity, UUID id) {
-        try {
-            java.lang.reflect.Field idField = entity.getClass().getSuperclass().getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, id);
-        } catch (Exception e) {
-            fail("Failed to set up test entity ID: " + e.getMessage());
-        }
-    }
 }
