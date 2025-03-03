@@ -3,6 +3,7 @@ package com.cardgamedeck.card_game_deck_api.application.impl;
 import com.cardgamedeck.card_game_deck_api.application.api.IDeckService;
 import com.cardgamedeck.card_game_deck_api.application.impl.base.BaseService;
 import com.cardgamedeck.card_game_deck_api.domain.model.Deck;
+import com.cardgamedeck.card_game_deck_api.domain.model.Game;
 import com.cardgamedeck.card_game_deck_api.domain.repository.IDeckRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -25,6 +26,14 @@ public class DeckService extends BaseService<Deck, IDeckRepository> implements I
         Deck deck = new Deck(name);
 
         return repository.save(deck);
+    }
+
+    @Transactional
+    public void deleteDeck(UUID deckId) {
+        Deck deck = repository.findById(deckId)
+                .orElseThrow(() -> new EntityNotFoundException("Deck not found with ID: " + deckId));
+
+        repository.delete(deck);
     }
 
     @Override

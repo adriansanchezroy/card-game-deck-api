@@ -5,21 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b350339-823f-44df-9bd8-9fd42af931d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/utils/TestUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile.cli" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/request/CreateGameRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/CardGameDeckCliApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/config/CliConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/config/RestTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/menu/DeckMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/menu/GameMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/menu/GameStatusMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/menu/IMenuItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/menu/MainMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/menu/PlayerMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/service/BaseApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/service/DeckApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/service/GameApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/service/PlayerApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-cli.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/CardGameDeckApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/CardGameDeckApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/DeckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/DeckService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/GameDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/domain/model/GameDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/infrastructure/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/infrastructure/exception/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/DeckController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/GameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/GameServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/PlayerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/PlayerServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/domain/GameDeckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/domain/GameDeckTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/domain/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/domain/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/presentation/mapper/CardMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/presentation/mapper/CardMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/presentation/mapper/DeckMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/presentation/mapper/DeckMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/presentation/mapper/GameMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/presentation/mapper/GameMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/presentation/mapper/PlayerMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/presentation/mapper/PlayerMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/card-game-deck-api-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/card-game-deck-api-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +54,7 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Dockerfile" />
         <option value="Class" />
       </list>
     </option>
@@ -65,7 +89,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -96,6 +120,7 @@
     "JUnit.GameDeckTest.getUndealtCardsByValue_ShouldReturnCorrectValueCounts.executor": "Run",
     "JUnit.GameDeckTest.shuffle_WithSomeDealtCards_ShouldPreserveDealtStatus.executor": "Run",
     "JUnit.GameDeckTest.shuffle_WithTwoDecks_ShouldDealAllCardsInRandomOrder.executor": "Run",
+    "JUnit.GameServiceTest.dealCardsToPlayer_WithValidParameters_ShouldDealCardsToPlayer.executor": "Run",
     "JUnit.GameServiceTest.executor": "Run",
     "JUnit.GameServiceTest.getPlayersWithTotalValues_ShouldReturnPlayersInDescendingOrderByTotalValue.executor": "Run",
     "JUnit.GameServiceTest.getPlayersWithTotalValues_ShouldReturnSortedListOfPlayers.executor": "Debug",
@@ -133,36 +158,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.cardgamedeck.card_game_deck_api" />
+      <recent name="" />
       <recent name="com.cardgamedeck.card_game_deck_api.application.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test in card-game-deck-api">
-    <configuration name="CardMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in card-game-deck-api">
+    <configuration name="All in card-game-deck-api" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="card-game-deck-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="presentation.mapper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="presentation.mapper" />
-      <option name="MAIN_CLASS_NAME" value="presentation.mapper.CardMapperTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DeckMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="card-game-deck-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="presentation.mapper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="presentation.mapper" />
-      <option name="MAIN_CLASS_NAME" value="presentation.mapper.DeckMapperTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,6 +185,22 @@
       <option name="PACKAGE_NAME" value="presentation.mapper" />
       <option name="MAIN_CLASS_NAME" value="presentation.mapper.GameMapperTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameServiceTest.dealCardsToPlayer_WithValidParameters_ShouldDealCardsToPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="card-game-deck-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cardgamedeck.card_game_deck_api.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cardgamedeck.card_game_deck_api.application" />
+      <option name="MAIN_CLASS_NAME" value="com.cardgamedeck.card_game_deck_api.application.GameServiceTest" />
+      <option name="METHOD_NAME" value="dealCardsToPlayer_WithValidParameters_ShouldDealCardsToPlayer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -231,20 +254,20 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JUnit.GameServiceTest.dealCardsToPlayer_WithValidParameters_ShouldDealCardsToPlayer" />
+      <item itemvalue="JUnit.All in card-game-deck-api" />
       <item itemvalue="JUnit.test in card-game-deck-api" />
-      <item itemvalue="JUnit.CardMapperTest" />
-      <item itemvalue="JUnit.DeckMapperTest" />
       <item itemvalue="JUnit.GameMapperTest" />
       <item itemvalue="JUnit.PlayerMapperTest" />
       <item itemvalue="Remote JVM Debug.Maven Test Debug" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in card-game-deck-api" />
+        <item itemvalue="JUnit.GameServiceTest.dealCardsToPlayer_WithValidParameters_ShouldDealCardsToPlayer" />
         <item itemvalue="JUnit.test in card-game-deck-api" />
         <item itemvalue="JUnit.GameMapperTest" />
         <item itemvalue="JUnit.PlayerMapperTest" />
-        <item itemvalue="JUnit.DeckMapperTest" />
-        <item itemvalue="JUnit.CardMapperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -266,6 +289,16 @@
           <url>file://$PROJECT_DIR$/src/test/domain/GameTest.java</url>
           <line>168</line>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/DeckController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cardgamedeck/cli/menu/GameStatusMenu.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

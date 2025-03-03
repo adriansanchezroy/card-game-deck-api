@@ -20,7 +20,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/players")
+@RequestMapping("/players")
 @Tag(name = "Player", description = "Player management operations")
 public class PlayerController {
 

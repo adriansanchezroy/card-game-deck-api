@@ -47,6 +47,13 @@ public class GameService extends BaseService<Game, IGameRepository> implements I
         Game game = repository.findById(gameId)
                 .orElseThrow(() -> new EntityNotFoundException("Game not found with ID: " + gameId));
 
+        // Clear all players' cards before deleting the game
+        game.getPlayers().forEach(player -> playerService.clearPlayerCards(player.getId()));
+
+        // Remove all players from the game to ensure no references remain
+        game.getPlayers().clear();
+
+        // Delete the game from the repository
         repository.delete(game);
     }
 
@@ -60,6 +67,7 @@ public class GameService extends BaseService<Game, IGameRepository> implements I
                 .orElseThrow(() -> new EntityNotFoundException("Deck not found with ID: " + deckId));
 
         game.addDeck(deck);
+        game.shuffleGameDeck();
         game.setUpdatedAt(LocalDateTime.now());
 
         return repository.save(game);
@@ -73,6 +81,14 @@ public class GameService extends BaseService<Game, IGameRepository> implements I
 
         Player player = playerService.findById(playerId)
                 .orElseThrow(() -> new EntityNotFoundException("Player not found with ID: " + playerId));
+
+        if (game.getPlayers().contains(player)) {
+            return game;
+        }
+
+        if (!player.getCards().isEmpty()) {
+            playerService.clearPlayerCards(playerId);
+        }
 
         game.addPlayer(player);
         game.setUpdatedAt(LocalDateTime.now());
@@ -91,6 +107,10 @@ public class GameService extends BaseService<Game, IGameRepository> implements I
 
         if (!game.getPlayers().contains(player)) {
             throw new IllegalArgumentException("Player is not in this game");
+        }
+
+        if (!player.getCards().isEmpty()) {
+            playerService.clearPlayerCards(playerId);
         }
 
         game.removePlayer(player);
@@ -114,6 +134,12 @@ public class GameService extends BaseService<Game, IGameRepository> implements I
 
         if (!game.getPlayers().contains(player)) {
             throw new IllegalArgumentException("Player is not in this game");
+        }
+
+        // Check if there are enough undealt cards
+        int undealtCount = game.getGameDeck().getUndealtCount();
+        if (undealtCount < count) {
+            throw new IllegalArgumentException("Not enough cards left in the deck. Requested: " + count + ", Available: " + undealtCount);
         }
 
         game.dealCards(player, count);

@@ -17,7 +17,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/decks")
+@RequestMapping("/decks")
 @Tag(name = "Deck", description = "Deck management operations")
 public class DeckController {
 
@@ -34,6 +34,7 @@ public class DeckController {
     public ResponseEntity<DeckDTO> createDeck(@RequestBody DeckDTO deckRequest) {
         Deck deck = deckService.createDeck(deckRequest.getName());
         DeckDTO deckDTO = deckMapper.toDTO(deck);
+
         return new ResponseEntity<>(deckDTO, HttpStatus.CREATED);
     }
 
@@ -46,7 +47,6 @@ public class DeckController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    // TODO: Probably unecessary controller method
     @GetMapping
     @Operation(summary = "Get all decks", description = "Returns all decks")
     public ResponseEntity<List<DeckDTO>> getAllDecks() {

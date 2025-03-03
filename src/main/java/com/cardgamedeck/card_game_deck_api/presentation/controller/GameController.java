@@ -3,7 +3,7 @@ package com.cardgamedeck.card_game_deck_api.presentation.controller;
 import com.cardgamedeck.card_game_deck_api.application.api.IGameService;
 import com.cardgamedeck.card_game_deck_api.domain.model.Game;
 import com.cardgamedeck.card_game_deck_api.presentation.dto.GameDTO;
-import com.cardgamedeck.card_game_deck_api.presentation.dto.request.DealCardsRequest;
+import com.cardgamedeck.card_game_deck_api.presentation.dto.request.*;
 import com.cardgamedeck.card_game_deck_api.presentation.dto.response.CardCountBySuitResponse;
 import com.cardgamedeck.card_game_deck_api.presentation.dto.response.CardCountByValueResponse;
 import com.cardgamedeck.card_game_deck_api.presentation.dto.response.PlayerScoreResponse;
@@ -21,7 +21,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/games")
+@RequestMapping("/games")
 @Tag(name = "Game", description = "Game management operations")
 public class GameController {
 
@@ -37,16 +37,16 @@ public class GameController {
 
     @PostMapping
     @Operation(summary = "Create a new game", description = "Creates a new card game")
-    public ResponseEntity<GameDTO> createGame(@RequestBody GameDTO gameRequest) {
-        Game gameEntity = gameService.createGame(gameRequest.getName());
+    public ResponseEntity<GameDTO> createGame(@RequestBody CreateGameRequest createGameRequest) {
+        Game gameEntity = gameService.createGame(createGameRequest.getName());
         GameDTO gameDTO = gameMapper.toDTO(gameEntity);
 
         return new ResponseEntity<>(gameDTO, HttpStatus.CREATED);
     }
 
-
     @DeleteMapping("/{gameId}")
     @Operation(summary = "Delete a game", description = "Deletes a game by its ID")
+    // TODO: When a game is deleted, should reset involved player hand count -> to modify in deleteGame service method
     public ResponseEntity<Void> deleteGame(@PathVariable UUID gameId) {
         gameService.deleteGame(gameId);
 
@@ -62,7 +62,6 @@ public class GameController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    // TODO: probably unecessary controller method
     @GetMapping
     @Operation(summary = "Get all games", description = "Returns all games")
     public ResponseEntity<List<GameDTO>> getAllGames() {

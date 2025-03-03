@@ -101,15 +101,25 @@ public class GameDeck extends BaseEntity {
     }
 
     public Map<String, Integer> getUndealtCardsBySuitAndValue() {
-        Map<String, Integer> countBySuitAndValue = new HashMap<>();
+        // Define suit order
+        List<Suit> suitOrder = Arrays.asList(Suit.HEARTS, Suit.SPADES, Suit.CLUBS, Suit.DIAMONDS);
 
-        getUndealtCards().forEach(card -> {
+        // Get undealt cards
+        List<Card> undealtCards = getUndealtCards();
+
+        // Sort cards first by suit order, then by face value in descending order
+        undealtCards.sort(Comparator.comparing((Card card) -> suitOrder.indexOf(card.getSuit()))
+                .thenComparing(card -> card.getValue().getFaceValue(), Comparator.reverseOrder()));
+
+        LinkedHashMap<String, Integer> sortedCountBySuitAndValue = new LinkedHashMap<>();
+        for (Card card : undealtCards) {
             String key = card.getSuit() + "-" + card.getValue();
-            countBySuitAndValue.put(key, countBySuitAndValue.getOrDefault(key, 0) + 1);
-        });
+            sortedCountBySuitAndValue.put(key, sortedCountBySuitAndValue.getOrDefault(key, 0) + 1);
+        }
 
-        return countBySuitAndValue;
+        return sortedCountBySuitAndValue;
     }
+
 
     public List<Card> getUndealtCards() {
         return cards.stream()

@@ -195,8 +195,10 @@ public class GameServiceTest {
     @Test
     void dealCardsToPlayer_WithValidParameters_ShouldDealCardsToPlayer() {
         // Given
-        // Add player to game first
         testGame.addPlayer(testPlayer);
+
+        Deck testDeck = new Deck("Test Deck");
+        testGame.addDeck(testDeck);
 
         when(gameRepository.findById(gameId)).thenReturn(Optional.of(testGame));
         when(playerService.findById(playerId)).thenReturn(Optional.of(testPlayer));
@@ -211,6 +213,7 @@ public class GameServiceTest {
         verify(playerService, times(1)).findById(playerId);
         verify(gameRepository, times(1)).save(testGame);
     }
+
 
     @Test
     void dealCardsToPlayer_WithNegativeCount_ShouldThrowIllegalArgumentException() {
