@@ -28,6 +28,7 @@ public class DeckService extends BaseService<Deck, IDeckRepository> implements I
         return repository.save(deck);
     }
 
+    @Override
     @Transactional
     public void deleteDeck(UUID deckId) {
         Deck deck = repository.findById(deckId)

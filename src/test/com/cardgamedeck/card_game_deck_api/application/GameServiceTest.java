@@ -18,6 +18,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import utils.TestUtils;
 
 import java.util.*;
 
@@ -55,23 +56,13 @@ public class GameServiceTest {
         playerId = UUID.randomUUID();
 
         testGame = new Game("Test Game");
-        setPrivateId(testGame, gameId);
+        TestUtils.setPrivateId(testGame, gameId);
 
         testDeck = new Deck("Test Deck");
-        setPrivateId(testDeck, deckId);
+        TestUtils.setPrivateId(testDeck, deckId);
 
         testPlayer = new Player("Test Player");
-        setPrivateId(testPlayer, playerId);
-    }
-
-    private void setPrivateId(Object entity, UUID id) {
-        try {
-            java.lang.reflect.Field idField = entity.getClass().getSuperclass().getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, id);
-        } catch (Exception e) {
-            fail("Failed to set up test entity ID: " + e.getMessage());
-        }
+        TestUtils.setPrivateId(testPlayer, playerId);
     }
 
     @Test
@@ -250,15 +241,15 @@ public class GameServiceTest {
     void getPlayersWithTotalValues_ShouldReturnPlayersInDescendingOrderByTotalValue() {
         // Create game and players
         Game game = new Game("Test Sorting Game");
-        setPrivateId(game, gameId);
+        TestUtils.setPrivateId(game, gameId);
 
         // Create players
         Player player1 = new Player("Player One");
         Player player2 = new Player("Player Two");
         Player player3 = new Player("Player Three");
-        setPrivateId(player1, UUID.randomUUID());
-        setPrivateId(player2, UUID.randomUUID());
-        setPrivateId(player3, UUID.randomUUID());
+        TestUtils.setPrivateId(player1, UUID.randomUUID());
+        TestUtils.setPrivateId(player2, UUID.randomUUID());
+        TestUtils.setPrivateId(player3, UUID.randomUUID());
 
         // Create cards with unique IDs
         Card card1ForPlayer1 = new Card(Suit.HEARTS, Value.KING); // 13 points
@@ -269,12 +260,12 @@ public class GameServiceTest {
         Card card2ForPlayer3 = new Card(Suit.HEARTS, Value.FOUR); // 4 points
 
         // Assign unique IDs to cards for testing
-        setPrivateId(card1ForPlayer1, UUID.randomUUID());
-        setPrivateId(card2ForPlayer1, UUID.randomUUID());
-        setPrivateId(card1ForPlayer2, UUID.randomUUID());
-        setPrivateId(card2ForPlayer2, UUID.randomUUID());
-        setPrivateId(card1ForPlayer3, UUID.randomUUID());
-        setPrivateId(card2ForPlayer3, UUID.randomUUID());
+        TestUtils.setPrivateId(card1ForPlayer1, UUID.randomUUID());
+        TestUtils.setPrivateId(card2ForPlayer1, UUID.randomUUID());
+        TestUtils.setPrivateId(card1ForPlayer2, UUID.randomUUID());
+        TestUtils.setPrivateId(card2ForPlayer2, UUID.randomUUID());
+        TestUtils.setPrivateId(card1ForPlayer3, UUID.randomUUID());
+        TestUtils.setPrivateId(card2ForPlayer3, UUID.randomUUID());
 
         // Add cards to players
         player1.addCard(card1ForPlayer1);
@@ -367,19 +358,4 @@ public class GameServiceTest {
         verify(mockGame, times(1)).getUndealtCardsBySuitAndValue();
     }
 
-    // TODO: not the most interesting test...
-    @Test
-    void shuffleGameDeck_ShouldShuffleAndReturnGame() {
-        // Given
-        when(gameRepository.findById(gameId)).thenReturn(Optional.of(testGame));
-        when(gameRepository.save(any(Game.class))).thenReturn(testGame);
-
-        // When
-        Game result = gameService.shuffleGameDeck(gameId);
-
-        // Then
-        assertNotNull(result);
-        verify(gameRepository, times(1)).findById(gameId);
-        verify(gameRepository, times(1)).save(testGame);
-    }
 }

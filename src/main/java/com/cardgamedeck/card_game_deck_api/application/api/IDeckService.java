@@ -21,6 +21,14 @@ public interface IDeckService extends IBaseService<Deck> {
     Deck createDeck(String name);
 
     /**
+     * Deletes a game by its ID.
+     *
+     * @param deckId The ID of the game to delete
+     * @throws jakarta.persistence.EntityNotFoundException if game not found
+     */
+    void deleteDeck(UUID deckId);
+
+    /**
      * Reinitialize an existing deck with a fresh set of 52 cards.
      * This method clears any existing cards and adds all 52 standard cards.
      *

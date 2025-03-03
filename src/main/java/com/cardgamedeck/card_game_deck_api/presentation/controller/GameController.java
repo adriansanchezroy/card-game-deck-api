@@ -11,6 +11,7 @@ import com.cardgamedeck.card_game_deck_api.presentation.mapper.GameMapper;
 import com.cardgamedeck.card_game_deck_api.presentation.mapper.PlayerMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +38,7 @@ public class GameController {
 
     @PostMapping
     @Operation(summary = "Create a new game", description = "Creates a new card game")
-    public ResponseEntity<GameDTO> createGame(@RequestBody CreateGameRequest createGameRequest) {
+    public ResponseEntity<GameDTO> createGame(@Valid @RequestBody CreateGameRequest createGameRequest) {
         Game gameEntity = gameService.createGame(createGameRequest.getName());
         GameDTO gameDTO = gameMapper.toDTO(gameEntity);
 
@@ -105,7 +106,7 @@ public class GameController {
     public ResponseEntity<GameDTO> dealCardsToPlayer(
             @PathVariable UUID gameId,
             @PathVariable UUID playerId,
-            @RequestBody(required = false) DealCardsRequest request) {
+            @Valid @RequestBody(required = false) DealCardsRequest request) {
 
         int count = (request != null) ? request.getCount() : 1;
         Game gameEntity = gameService.dealCardsToPlayer(gameId, playerId, count);
