@@ -13,23 +13,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>card-game-deck-api</name>
 	<description>Deck of Cards REST API Implementation</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+
 	<properties>
 		<java.version>17</java.version>
 		<springdoc.version>2.4.0</springdoc.version>
+		<start-class>com.cardgamedeck.card_game_deck_api.CardGameDeckApiApplication</start-class>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -69,6 +59,12 @@
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>info.picocli</groupId>
+			<artifactId>picocli-spring-boot-starter</artifactId>
+			<version>4.7.5</version>
 		</dependency>
 
 		<dependency>
@@ -113,6 +109,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>${start-class}</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -123,5 +120,23 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>api</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<start-class>com.cardgamedeck.card_game_deck_api.CardGameDeckApiApplication</start-class>
+			</properties>
+		</profile>
+		<profile>
+			<id>cli</id>
+			<properties>
+				<start-class>com.cardgamedeck.cli.CardGameDeckCliApplication</start-class>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>

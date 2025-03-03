@@ -12,11 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/decks")
+@RequestMapping("/decks")
 @Tag(name = "Deck", description = "Deck management operations")
 public class DeckController {
 
@@ -32,23 +33,29 @@ public class DeckController {
     @Operation(summary = "Create a new deck", description = "Creates a new standard 52-card deck")
     public ResponseEntity<DeckDTO> createDeck(@RequestBody DeckDTO deckRequest) {
         Deck deck = deckService.createDeck(deckRequest.getName());
-        return new ResponseEntity<>(deckMapper.toDTO(deck), HttpStatus.CREATED);
+        DeckDTO deckDTO = deckMapper.toDTO(deck);
+
+        return new ResponseEntity<>(deckDTO, HttpStatus.CREATED);
     }
 
     @GetMapping("/{deckId}")
     @Operation(summary = "Get a deck by ID", description = "Returns a deck by its ID")
     public ResponseEntity<DeckDTO> getDeckById(@PathVariable UUID deckId) {
-        return deckService.findById(deckId)
-                .map(deck -> new ResponseEntity<>(deckMapper.toDTO(deck), HttpStatus.OK))
+        Optional<Deck> deck = deckService.findById(deckId);
+
+        return deck.map(value -> new ResponseEntity<>(deckMapper.toDTO(value), HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping
     @Operation(summary = "Get all decks", description = "Returns all decks")
     public ResponseEntity<List<DeckDTO>> getAllDecks() {
-        List<DeckDTO> decks = deckService.findAll().stream()
+        List<Deck> decks = deckService.findAll();
+
+        List<DeckDTO> deckDTOs = decks.stream()
                 .map(deckMapper::toDTO)
                 .collect(Collectors.toList());
-        return new ResponseEntity<>(decks, HttpStatus.OK);
+
+        return new ResponseEntity<>(deckDTOs, HttpStatus.OK);
     }
 }

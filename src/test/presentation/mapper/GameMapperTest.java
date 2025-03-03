@@ -12,6 +12,7 @@ import com.cardgamedeck.card_game_deck_api.presentation.mapper.GameMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import utils.TestUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +38,7 @@ class GameMapperTest {
         // Create test game with mock game deck
         gameId = UUID.randomUUID();
         testGame = new Game("Test Game");
-        setPrivateId(testGame, gameId);
+        TestUtils.setPrivateId(testGame, gameId);
 
         // Use reflection to set mock game deck
         try {
@@ -51,8 +52,8 @@ class GameMapperTest {
         // Add two players to game
         Player player1 = new Player("Player 1");
         Player player2 = new Player("Player 2");
-        setPrivateId(player1, UUID.randomUUID());
-        setPrivateId(player2, UUID.randomUUID());
+        TestUtils.setPrivateId(player1, UUID.randomUUID());
+        TestUtils.setPrivateId(player2, UUID.randomUUID());
         testGame.addPlayer(player1);
         testGame.addPlayer(player2);
     }
@@ -121,14 +122,4 @@ class GameMapperTest {
         assertEquals(1, result.getCardCountByValue().get("DIAMONDS-JACK"));
     }
 
-    // TODO Put in test Utils
-    private void setPrivateId(Object entity, UUID id) {
-        try {
-            java.lang.reflect.Field idField = entity.getClass().getSuperclass().getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, id);
-        } catch (Exception e) {
-            fail("Failed to set up test entity ID: " + e.getMessage());
-        }
-    }
 }

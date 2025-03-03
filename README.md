@@ -144,7 +144,5 @@ During the implementation of this project, I successfully incorporated most of t
 
 One challenge I encountered was running all components (API, CLI, and PostgreSQL) within separate Docker containers simultaneously. While the Docker setup itself was functional, having two Spring Boot applications (one for the CLI and one for the API) led to internal issues. Indeed, the CLI was unable to communicate with the API, consistently returning 500 errors due to unexpected static resource handling. Despite multiple attempts to resolve this by ensuring proper class scanning and verifying the Maven-built JARs, Spring still failed to detect and wire components correctly. In hindsight, integrating a simple web interface that interacts with the API via Axios would have been a better solution, avoiding the complexities of managing multiple Spring Boot applications within Docker.
 
-Additionally, there were a few features I intended to implement but did not have the time to complete. These include deploying the application online and adding more extensive validation across various API endpoints to ensure data integrity and improve user input handling. These enhancements would further improve the usability, reliability, and accessibility of the application in a real-world scenario.
-
 ---
 

@@ -14,6 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import utils.TestUtils;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -42,14 +43,14 @@ public class PlayerServiceTest {
         // Initialize test data
         playerId = UUID.randomUUID();
         testPlayer = new Player("Test Player");
-        setPrivateId(testPlayer, playerId);
+        TestUtils.setPrivateId(testPlayer, playerId);
 
         // Create test cards
         testCards = new HashSet<>();
         Card card1 = new Card(Suit.HEARTS, Value.ACE);
         Card card2 = new Card(Suit.SPADES, Value.KING);
-        setPrivateId(card1, UUID.randomUUID());
-        setPrivateId(card2, UUID.randomUUID());
+        TestUtils.setPrivateId(card1, UUID.randomUUID());
+        TestUtils.setPrivateId(card2, UUID.randomUUID());
 
         // Add cards to player
         testPlayer.addCard(card1);
@@ -58,15 +59,6 @@ public class PlayerServiceTest {
         testCards.add(card2);
     }
 
-    private void setPrivateId(Object entity, UUID id) {
-        try {
-            java.lang.reflect.Field idField = entity.getClass().getSuperclass().getDeclaredField("id");
-            idField.setAccessible(true);
-            idField.set(entity, id);
-        } catch (Exception e) {
-            fail("Failed to set up test entity ID: " + e.getMessage());
-        }
-    }
 
     @Test
     void createPlayer_WithValidName_ShouldReturnCreatedPlayer() {
