@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b350339-823f-44df-9bd8-9fd42af931d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/integration/controller/DeckControllerIntegrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/integration/controller/GameControllerIntegrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/integration/controller/PlayerControllerIntegrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/CardGameDeckApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/CardGameDeckApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IDeckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/api/IDeckService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/DeckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/application/impl/DeckService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/infrastructure/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/infrastructure/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/request/CreateGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/request/CreateGameRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/request/DealCardsRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cardgamedeck/card_game_deck_api/presentation/dto/request/DealCardsRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/GameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/cardgamedeck/card_game_deck_api/application/GameServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +115,7 @@
     "Remote JVM Debug.Maven Test Debug.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/integration-tests",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/home/adriansanchezroy/Documents/card-deck-game-api/src/test",
     "last_opened_file_path": "/home/adriansanchezroy/Documents/card-deck-game-api",
